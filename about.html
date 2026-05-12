@@ -1,168 +1,119 @@
-
 <!DOCTYPE html>
-<!-- saved from url=(0070)https://serendipitychen.gitee.io/webpage/%E4%B8%BB%E9%A1%B5/index.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>About</title>
-    <meta name="description" content="NingYaFelix">
-    <meta name="keywords" content="NingYaFelix">
-    <link rel="stylesheet" type="text/css" href="./css/FiraCode.css">
-    <link rel="stylesheet" type="text/css" href="./css/nutssss.css">
-    <link rel="icon" href="./img/favicon.ico">
-	
-	<!-- 一言接口 -->
-	<script src="./saved_resource" defer=""></script>
-	<!-- 打字机效果 -->
-	<script src="./js/jquery-1.11.0.min.js"></script>
-	<script src="./js/typed.js"></script>
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function(){
-		Typed.new(".element", {
-	    strings: [
-                    "最好晚点遇见你，余生一直都是你。",
-                    "不管在何处，看到你名字中的某一个字，都会眼前一亮。暗暗喜悦地在心中咀嚼无数遍，仍觉得它们如此恰好。",
-                    "时间为媒，青春为聘；你若为良辰，我愿当美景。",
-                    "我希望每天夜里闭眼前看见的最后一个人是你，每天早晨睁开眼后看见的第一个人是你。", 
-                    "见色起意也好，一见钟情也罢，第一眼我就喜欢你，就是喜欢你。",
-                    "我嫉妒你身边每一个无关紧要的人，因为他们毫不费力的，就能见到我朝思暮想的你。",
-                ],
-	    startDelay: 500,
-		loop: true,
-		backSpeed: 30,
-		backDelay: 3000, 
-		typeSpeed: 100, 
-		showCursor: !0,
-		shuffle: true,
-	  });
-	});           
-	</script> 
-	<!--一言解析-->
-	<script>
-			var message;
-			function getmessage(){
-			$.ajax({
-				type: "get",
-				url: "https://v1.hitokoto.cn/?encode=js&select=%23hitokoto",
-				dataType: "text",
-				success: function(data) {
-					message=data.toString().substring(data.toString().indexOf('hitokoto="')+10,data.toString().indexOf('";var'));
-					document.getElementById('write').innerHTML = "<p id='hitokoto'>"+message+"</p>";
-				},
-				error: function(data) {
-				}
-			});
-			}
-			setInterval("getmessage()", 4000);
-	</script>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpFelix | 关于我</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
-
 <body>
-    <div id="box">
-        <!-- 个人资料卡片 -->
-        <div class="meBox">
-            <!-- 头像 -->
-            <div class="headPhoto"></div>
-            <!-- 介绍 -->
-            <div class="meBox-title">
-                <p>Hello, welcome is.</p>
-                <div class="fg"></div>
-            </div>
-            <div class="meBox-text">
-                <p>未来的路会很漫长<img src="./img/004.png" alt="NingYaFelix" style="width: 20px; vertical-align: middle;"></p>
-                <p>不知可否愿与我走到最后 <!-- <img src="./img/flb.png" alt="NingYaFelix" style="width: 15px; vertical-align: middle;"> --></p>
-                   
-				<a href="https://www.cnblogs.com/NingYafelix">Blog<img src="./img/blog.png" alt="blog" style="width: 20px; vertical-align: middle;"></a>
-				<a href="https://www.cnblogs.com/NingYaFelix/gallery/2361491.html">相册<img src="./img/camera.png" alt="star" style="width: 30px; vertical-align: middle;"></a>				
-				<a href="https://github.com/NingYaFelix">Github<img src="./img/github.png" alt="github" style="width: 25px; vertical-align: middle;"></a>
-            </div>
-               
-			
-        </div>
+    <!-- 动态背景 -->
+    <div class="bg-container"></div>
 
-        <!-- 伪终端介绍 -->
-        <div id="cmdBox">
-            <!-- 第一个终端 -->
-            <div class="cmd">
-                <!-- 三个按钮 -->
-                <div class="click">
-                    <div class="red"></div>
-                    <div class="yellow"></div>
-                    <div class="green"></div>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">OpFelix</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="https://www.cnblogs.com/opfelix">Blog</a>
+            <a href="https://www.cnblogs.com/opfelix/gallery/2361491.html">Album</a>
+            <a href="about.html" style="color: #00b4ff;">About</a>
+        </div>
+    </nav>
+
+    <!-- 个人简介 -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-header">
+                <h1>关于我</h1>
+                <div class="divider"></div>
+            </div>
+
+            <!-- 个人信息卡片 -->
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="img\avatar\抱着娃娃哭.png" alt="头像">
+                    <div class="profile-overlay"></div>
                 </div>
-                <!-- 顶部标题 -->
-                <div class="title">
-                    <span>Agoni - zsh</span>
+                <div class="profile-info">
+                    <h2>OpFelix</h2>
+                    <p class="title">运维工程师 | 开源爱好者</p>
+                    <div class="social-links">
+                        <a href="https://github.com/opfelix" target="_blank" class="social-icon">
+                            <img src="img\icon\github.svg" alt="GitHub">
+                        </a>
+                    </div>
                 </div>
-                <!-- 终端内文字 -->
-                <div class="cmdText">
-                    <!-- <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./weather.sh</span>
+            </div>
+
+            <!-- 个人简介内容 -->
+            <div class="about-content">
+                <div class="content-section">
+                    <h3>个人简介</h3>
                     <p>
-                        <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tb&amp;skin=pitaya" frameborder="0" width="350" height="24" allowtransparency="true">
+                        一名热爱技术的运维工程师，专研Linux系统管理、自动化运维和云原生技术。
+                    </p>
+                </div>
 
-                        </iframe>
-                    </p> -->
-                    <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./love.sh</span>
-                    <p>幸识</p>
-
-                    <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">cat /me.txt</span>  
-                    <p>一个啥都会一点的社会闲散人员</p> 
-					<p>你有兴趣和我联系的话</p>    
-					<p>就请发电子邮件吧</p>
-					<p>电子邮箱：NingYaFelix@163.com</p>
-					<!-- <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span> -->
-                    <!--<span style="color: rgb(39, 39, 39);">./hobbies.sh</span>
-                    <p></p>
-                    <p></p>-->
-
-                    <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">sudo rm -rf /own/*</span>
-                    <p>忘却凡尘世间种种</p>
+                <div class="content-section">
+                    <h3>专业技能</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Linux</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Shell</div>
+                        <div class="skill-item">Docker</div>
+                    </div>
                 </div>
             </div>
-            <!-- 第二个终端 -->
-            <div class="cmd cmd2">
-                <!-- 三个按钮 -->
-                <div class="click">
-                    <div class="red"></div>
-                    <div class="yellow"></div>
-                    <div class="green"></div>
+
+            <!-- 证书奖项 -->
+            <div class="certificates-section">
+                <h2>证书奖项</h2>
+                <div class="divider"></div>
+                <div class="certificates-grid">
+                    <div class="cert-item" onclick="openCertModal(0)">
+                        <!-- <span class="cert-icon">🏆</span> -->
+                        <span class="cert-name">H3CNE-RS+</span>
+                    </div>
+                        <div class="cert-item" onclick="openCertModal(1)">
+                        <!-- <span class="cert-icon">🏆</span> -->
+                        <span class="cert-name">H3CNE-Security</span>
+                    </div>
                 </div>
-                <!-- 顶部标题 -->
-                <div class="title">
-                    <span>Agoni - zsh</span>
-                </div>
-                <!-- 终端内文字 -->
-                <div class="cmdText">
-                    <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./hitokoto.sh</span>                    
-					<div id="write"><p id="hitokoto"></p></div>
-					<span style="color: rgb(0, 190, 0);">root@Agoni</span>
-					<span style="color: blue;">~</span>
-					<span style="color: rgb(39, 39, 39);">./believe.sh</span> 
-					<div>
-                    <span class="element"></span><span class="typed-cursor"></span>
-					</div>
-                    <span style="color: rgb(0, 190, 0);">root@Agoni</span>
-                    <span style="color: blue;">~</span>
-                    <span style="color: rgb(39, 39, 39);">./ideal.sh</span>
-                    <p>世间一切的美好都是不值得期待的</p>
-                    <p>攒够100w退休回家养老</p>
+            </div>
+
+            <!-- 证书详情弹窗 -->
+            <div id="certModal" class="modal" onclick="closeCertModal()">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <span class="close-btn" onclick="closeCertModal()">&times;</span>
+                    <div class="cert-detail-header">
+                        <div class="cert-detail-icon" id="certDetailIcon"></div>
+                        <div class="cert-detail-info">
+                            <h3 id="certDetailTitle"></h3>
+                            <p id="certDetailDate"></p>
+                            <span class="cert-detail-badge" id="certDetailBadge"></span>
+                        </div>
+                    </div>
+                    <div class="cert-detail-image-container">
+                        <img id="certDetailImage" src="" alt="证书图片">
+                        <div class="image-zoom-hint">点击图片放大查看</div>
+                    </div>
+                    <div class="cert-detail-desc">
+                        <p id="certDetailDesc"></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 页脚 -->
-    
+    <!-- 底部 -->
+    <footer>
+        <p>一介凡人而已 &amp; 活着亦是奢求</p>
+        <p style="margin-top:0.5rem; font-size:0.9rem;">以运维为途，以开源为栖</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/about.js"></script>
 </body>
 </html>
